@@ -1,0 +1,68 @@
+# API Usage
+
+# Group Quick start
+
+## /users
+### Create user [POST]
+
+The first thing we need to do is to add a user that we can later log in as. Do
+this by sending a POST request with the relevant details.
+
++ Request
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "username": "Linus", "password": "test" }
+
++ Response 201
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{userId}", "username": "Linus", "password": "test" }
+
+## /sessions
+### Log in as the user [POST]
+
+We can now log in as the user we created. This is accomplished by creating a new
+session with the relevant login details.
+
++ Request
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "username": "Linus", "password": "test" }
+
++ Response 201
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{sessionId}", "token": "{sessionToken}", "userId": "{userId}" }
+
+## /messages
+### Shout your message to the world [POST]
+
+Now that you are logged in your are free to post messages for others to see.
+
++ Request
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "text": "Listen to me!" }
+
++ Response 201
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{messageId}", "text": "Listen to me!" }
+
+### Listen in on the conversation [GET]
+
+Listen to the conversation by retreiving all the messages.
+
++ Response 200
+  + Headers
+    Content-Type: application/json
+  + Body
+    [
+      { "id": "{messageId}", "text": "Listen to me!" }
+    ]

@@ -1,0 +1,112 @@
+# API Spec
+
+# Group Users
+## User list [/users]
+### Create user [POST]
+
++ Request
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "username": "Linus", "password": "test" }
+
++ Response 201
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{userId}", "username": "Linus", "password": "test" }
+
+### List users [GET]
+
++ Response 200
+  + Headers
+    Content-Type: application/json
+  + Body
+    [
+      { "id": "{userId}", "username": "Linus" }
+    ]
+
+## User [/users/{userId}]
+### Get user [GET]
+
++ Response 200
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{userId}", "username": "Linus" }
+
+# Group Session
+## Session list [/sessions]
+### Create session [POST]
+
++ Request
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "username": "Linus", "password": "this is the wrong password" }
+
++ Response 403
+
++ Request
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "username": "Linus", "password": "test" }
+
++ Response 201
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{sessionId}", "token": "{sessionToken}", "userId": "{userId}" }
+
+## Session [/sessions/{sessionId}]
+### Get session [GET]
+
++ Response 200
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{sessionId}", "token": "{sessionToken}", "userId": "{userId}" }
+
+### Delete session [DELETE]
+
++ Response 204
+
+# Group Messages
+## Message List [/messages]
+### Post message [POST]
+
++ Request
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "text": "Listen to me!" }
+
++ Response 201
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{messageId}", "text": "Listen to me!" }
+
+### List messages [GET]
+
++ Response 200
+  + Headers
+    Content-Type: application/json
+  + Body
+    [
+      { "id": "{messageId}", "text": "Listen to me!" }
+    ]
+
+## Message [/messages/{messageId}]
+### Get message [GET]
+
++ Response 200
+  + Headers
+    Content-Type: application/json
+  + Body
+    { "id": "{messageId}", "text": "Listen to me!" }
+
+### Delete message [DELETE]
+
++ Response 204
