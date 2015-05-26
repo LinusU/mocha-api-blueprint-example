@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "mocha": "^2.2.5",
-    "mocha-api-blueprint": "0.1.0",
+    "mocha-api-blueprint": "0.2.1",
     "protagonist": "LinusU/protagonist.git#c1b29e2"
   },
   "scripts": {

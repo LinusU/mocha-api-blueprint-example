@@ -14,9 +14,7 @@ function testBlueprint (title, fileName) {
     suite.registerTransactions(parsed.ast, function (transaction, done) {
       var res = server.handle(transaction.req)
 
-      if (transaction.res.body) {
-        suite.validateResponse(res, JSON.parse(transaction.res.body))
-      }
+      suite.validateResponse(res, transaction.res)
 
       done()
     })
