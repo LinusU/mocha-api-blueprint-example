@@ -17,6 +17,7 @@ this by sending a POST request with the relevant details.
 + Response 201
   + Headers
     Content-Type: application/json
+    Location: /users/{userId}
   + Body
     { "id": "{userId}", "username": "Linus", "password": "test" }
 
@@ -35,6 +36,7 @@ session with the relevant login details.
 + Response 201
   + Headers
     Content-Type: application/json
+    Location: /sessions/{sessionId}
   + Body
     { "id": "{sessionId}", "token": "{sessionToken}", "userId": "{userId}" }
 
@@ -52,6 +54,7 @@ Now that you are logged in your are free to post messages for others to see.
 + Response 201
   + Headers
     Content-Type: application/json
+    Location: /messages/{messageId}
   + Body
     { "id": "{messageId}", "text": "Listen to me!" }
 

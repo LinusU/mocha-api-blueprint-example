@@ -13,6 +13,7 @@
 + Response 201
   + Headers
     Content-Type: application/json
+    Location: /users/{userId}
   + Body
     { "id": "{userId}", "username": "Linus", "password": "test" }
 
@@ -56,6 +57,7 @@
 + Response 201
   + Headers
     Content-Type: application/json
+    Location: /sessions/{sessionId}
   + Body
     { "id": "{sessionId}", "token": "{sessionToken}", "userId": "{userId}" }
 
@@ -85,6 +87,7 @@
 + Response 201
   + Headers
     Content-Type: application/json
+    Location: /messages/{messageId}
   + Body
     { "id": "{messageId}", "text": "Listen to me!" }
 
